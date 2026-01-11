@@ -1,0 +1,72 @@
+sp500_analytics:
+  outputs:
+    dev:
+      type: bigquery
+      method: oauth
+      project: your-gcp-project-id
+      dataset: sp500_dev
+      threads: 4
+      timeout_seconds: 300
+      location: US
+      priority: interactive
+    
+    prod:
+      type: bigquery
+      method: service-account
+      project: your-gcp-project-id
+      dataset: sp500_prod
+      threads: 8
+      timeout_seconds: 300
+      location: US
+      priority: interactive
+      keyfile: /path/to/service-account-key.json
+  
+  target: dev
+
+# Alternative: Snowflake Configuration
+# sp500_analytics:
+#   outputs:
+#     dev:
+#       type: snowflake
+#       account: your-account
+#       user: your-username
+#       password: your-password
+#       role: your-role
+#       warehouse: your-warehouse
+#       database: sp500_dev
+#       schema: public
+#       threads: 4
+#     prod:
+#       type: snowflake
+#       account: your-account
+#       user: your-username
+#       password: your-password
+#       role: your-role
+#       warehouse: your-warehouse
+#       database: sp500_prod
+#       schema: public
+#       threads: 8
+#   target: dev
+
+# Alternative: AWS Redshift Configuration
+# sp500_analytics:
+#   outputs:
+#     dev:
+#       type: redshift
+#       host: your-cluster.region.redshift.amazonaws.com
+#       user: your-username
+#       password: your-password
+#       port: 5439
+#       dbname: sp500_dev
+#       schema: public
+#       threads: 4
+#     prod:
+#       type: redshift
+#       host: your-cluster.region.redshift.amazonaws.com
+#       user: your-username
+#       password: your-password
+#       port: 5439
+#       dbname: sp500_prod
+#       schema: public
+#       threads: 8
+#   target: dev

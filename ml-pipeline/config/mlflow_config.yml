@@ -1,0 +1,46 @@
+# MLflow Configuration
+
+## Tracking Server
+tracking_uri: databricks
+experiment_name: /sp500-recommendation-model
+artifact_location: dbfs:/mlflow-experiments/sp500
+
+## Model Registry
+model_name: sp500_recommendation_model
+registry_uri: databricks
+
+## Run Configuration
+run_config:
+  tags:
+    project: sp500-lab
+    team: data-science
+    environment: production
+  
+## Autologging
+autolog:
+  enabled: true
+  log_models: true
+  log_input_examples: true
+  log_model_signatures: true
+  
+## Model Versioning
+versioning:
+  stage_transition_on_metric: true
+  metric_name: f1_score
+  metric_threshold: 0.75
+  promote_to_production: true
+  
+## Experiment Tracking
+tracking:
+  log_params: true
+  log_metrics: true
+  log_artifacts: true
+  log_model: true
+  
+## Model Serving
+serving:
+  endpoint_name: sp500-recommendation-api
+  instance_type: Standard_DS3_v2
+  min_instances: 1
+  max_instances: 3
+  scale_to_zero: false

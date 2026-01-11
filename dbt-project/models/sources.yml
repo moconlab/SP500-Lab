@@ -1,0 +1,77 @@
+version: 2
+
+sources:
+  - name: raw
+    description: Raw data sources from external systems
+    database: your-gcp-project-id  # or your database name
+    schema: raw
+    tables:
+      - name: stock_prices
+        description: Historical stock price data (OHLCV)
+        columns:
+          - name: symbol
+            description: Stock ticker symbol
+            tests:
+              - not_null
+          - name: date
+            description: Trading date
+            tests:
+              - not_null
+          - name: open
+            description: Opening price
+          - name: high
+            description: Highest price
+          - name: low
+            description: Lowest price
+          - name: close
+            description: Closing price
+            tests:
+              - not_null
+          - name: volume
+            description: Trading volume
+            tests:
+              - not_null
+          - name: adjusted_close
+            description: Adjusted closing price
+          - name: _loaded_at
+            description: Data load timestamp
+
+      - name: fundamentals
+        description: Company fundamental financial data
+        columns:
+          - name: symbol
+            description: Stock ticker symbol
+            tests:
+              - not_null
+          - name: report_date
+            description: Reporting period date
+            tests:
+              - not_null
+          - name: revenue
+            description: Total revenue
+          - name: gross_profit
+            description: Gross profit
+          - name: operating_income
+            description: Operating income
+          - name: net_income
+            description: Net income
+          - name: total_assets
+            description: Total assets
+          - name: total_liabilities
+            description: Total liabilities
+          - name: total_equity
+            description: Total shareholder equity
+          - name: cash_and_equivalents
+            description: Cash and cash equivalents
+          - name: current_assets
+            description: Current assets
+          - name: current_liabilities
+            description: Current liabilities
+          - name: long_term_debt
+            description: Long-term debt
+          - name: free_cash_flow
+            description: Free cash flow
+          - name: shares_outstanding
+            description: Shares outstanding
+          - name: _loaded_at
+            description: Data load timestamp
