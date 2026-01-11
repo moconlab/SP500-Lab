@@ -48,7 +48,7 @@ router.get('/search', (req: Request, res: Response) => {
 // Get stock details
 router.get('/:symbol', (req: Request, res: Response) => {
   try {
-    const { symbol } = req.params;
+    const symbol = req.params.symbol as string;
     const stock = StockService.getStockBySymbol(symbol.toUpperCase());
     
     if (!stock) {
@@ -82,7 +82,7 @@ router.get('/:symbol', (req: Request, res: Response) => {
 // Get stock metrics
 router.get('/:symbol/metrics', (req: Request, res: Response) => {
   try {
-    const { symbol } = req.params;
+    const symbol = req.params.symbol as string;
     const metrics = StockService.getStockMetrics(symbol.toUpperCase());
     
     if (!metrics) {
@@ -107,7 +107,7 @@ router.get('/:symbol/metrics', (req: Request, res: Response) => {
 // Get stock recommendation
 router.get('/:symbol/recommendation', (req: Request, res: Response) => {
   try {
-    const { symbol } = req.params;
+    const symbol = req.params.symbol as string;
     const recommendation = StockService.getRecommendation(symbol.toUpperCase());
     
     if (!recommendation) {
@@ -132,7 +132,7 @@ router.get('/:symbol/recommendation', (req: Request, res: Response) => {
 // Get stock price history
 router.get('/:symbol/history', (req: Request, res: Response) => {
   try {
-    const { symbol } = req.params;
+    const symbol = req.params.symbol as string;
     const days = parseInt(req.query.days as string) || 90;
     
     const priceHistory = StockService.getPriceHistory(symbol.toUpperCase(), days);

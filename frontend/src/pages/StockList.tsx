@@ -14,10 +14,12 @@ const StockList: React.FC = () => {
 
   useEffect(() => {
     fetchStocks();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
     filterStocks();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [stocks, searchQuery, selectedSector]);
 
   const fetchStocks = async () => {
