@@ -1,0 +1,51 @@
+# Databricks Configuration for SP500 Lab
+
+## Cluster Configuration
+cluster_name: sp500-ml-cluster
+spark_version: 13.3.x-cpu-ml-scala2.12
+node_type_id: Standard_DS3_v2
+num_workers: 2
+autoscale:
+  min_workers: 1
+  max_workers: 4
+
+## Libraries
+libraries:
+  - pypi:
+      package: mlflow==2.9.2
+  - pypi:
+      package: scikit-learn==1.3.2
+  - pypi:
+      package: pandas==2.1.4
+  - pypi:
+      package: numpy==1.26.2
+  - pypi:
+      package: xgboost==2.0.3
+  - pypi:
+      package: lightgbm==4.1.0
+  - pypi:
+      package: matplotlib==3.8.2
+  - pypi:
+      package: seaborn==0.13.0
+
+## Environment Variables
+environment_variables:
+  MLFLOW_EXPERIMENT_NAME: /sp500-recommendation-model
+  MODEL_REGISTRY_NAME: sp500_recommendation_model
+  
+## Storage
+storage:
+  dbfs_path: /mnt/sp500-data
+  model_path: /mnt/sp500-models
+  
+## Jobs Configuration
+jobs:
+  - name: daily-model-training
+    schedule: "0 0 * * *"  # Daily at midnight
+    notebook_path: /notebooks/train_model
+    cluster: sp500-ml-cluster
+    
+  - name: weekly-model-evaluation
+    schedule: "0 0 * * 0"  # Weekly on Sunday
+    notebook_path: /notebooks/evaluate_model
+    cluster: sp500-ml-cluster

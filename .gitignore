@@ -1,0 +1,87 @@
+# Dependencies
+node_modules/
+package-lock.json
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+.venv
+pip-log.txt
+pip-delete-this-directory.txt
+*.egg-info/
+dist/
+build/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Build outputs
+/frontend/build
+/backend/dist
+*.tsbuildinfo
+
+# Logs
+logs/
+*.log
+
+# dbt
+/dbt-project/target/
+/dbt-project/dbt_packages/
+/dbt-project/logs/
+
+# ML artifacts
+/ml-pipeline/mlruns/
+/ml-pipeline/mlflow.db
+*.pkl
+*.h5
+*.ckpt
+
+# Test coverage
+coverage/
+*.coverage
+.nyc_output/
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+*.bak
+
+# Docker
+.dockerignore
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Databricks
+.databricks/

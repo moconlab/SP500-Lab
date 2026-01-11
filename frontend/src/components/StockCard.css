@@ -1,0 +1,72 @@
+.stock-card {
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.stock-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.stock-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 15px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.stock-symbol {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0 0 5px 0;
+  color: #1f2937;
+}
+
+.stock-name {
+  font-size: 14px;
+  color: #6b7280;
+  margin: 0;
+}
+
+.stock-price {
+  text-align: right;
+}
+
+.price {
+  font-size: 22px;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 4px;
+}
+
+.change {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.stock-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.stock-info-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+}
+
+.stock-info-row .label {
+  color: #6b7280;
+}
+
+.stock-info-row .value {
+  color: #1f2937;
+  font-weight: 500;
+}
